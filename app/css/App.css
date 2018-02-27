@@ -1,18 +1,20 @@
 img {
   max-width: 100%;
-  width: 100%;
+  max-height: 480px;
 }
 
 .main {
   margin: 0px auto;
   width: 960px;
-  /* border: 1px solid black; */
 }
 
 .card {
   padding: 10px;
   border: 1px solid black;
   margin: 10px;
+  min-height: 480px;
 }
 
-
+.infiniteScroll {
+  display: block;
+}

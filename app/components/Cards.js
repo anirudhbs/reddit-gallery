@@ -1,14 +1,21 @@
 import React, { Component } from 'react'
 import Card from './Card'
+import InfiniteScroll from 'react-infinite-scroller'
 
-class Cards extends Component {
+class InfiniteScroller extends Component {
   render () {
+    const loader = <div className='loader'>Loading...</div>
     return (
-      this.props.posts.map(cur =>
-        <Card url={cur.url} key={cur.id} />
-      )
+      <InfiniteScroll loadMore={this.props.getPosts} className='infiniteScroll'
+        hasMore={this.props.hasMore} loader={loader}>
+        {
+          this.props.posts.map(cur =>
+            <Card url={cur.url} key={cur.id} />
+          )
+        }
+      </InfiniteScroll>
     )
   }
 }
 
-export default Cards
+export default InfiniteScroller

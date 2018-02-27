@@ -1,33 +1,42 @@
 import React, { Component } from 'react'
 import Cards from './Cards'
 import Search from './Search'
-import InfiniteScroller from './InfiniteScroller'
 
 class Main extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      subreddit: '',
-      posts: []
+      subreddit: 'pics',
+      posts: [],
+      hasMore: true,
+      after: null
     }
-    this.getImages = this.getImages.bind(this)
+    this.getPosts = this.getPosts.bind(this)
   }
 
-  getImages () {
-    const url = `https://www.reddit.com/r/${this.state.subreddit}/rising/.json?limit=4`
-    fetch(url)
+  getPosts () {
+    const domain = 'https://www.reddit.com'
+    const url = `/r/${this.state.subreddit}/top/.json?limit=5&after=${this.state.after}`
+    fetch(domain + url)
     .then(data => data.json())
     .then(data => {
-      const posts = data.data.children.map(cur => {
+      if (data.data.after === null) {
+        this.setState({ hasMore: false })
+      } else {
+        this.setState({ after: data.data.after })
+      }
+      const postsArray = data.data.children.map(cur => {
         return {
           url: cur.data.url,
-          subreddit: cur.data.subreddit,
           id: cur.data.id
         }
       })
-      this.setState({posts})
-    }
-    )
+      const filteredPosts = postsArray.filter(cur => cur.url.endsWith('.jpg') || cur.url.endsWith('.png'))
+      const posts = this.state.posts
+      posts.push(...filteredPosts)
+      this.setState({ posts })
+      console.log(this.state.after, posts.length)
+    })
   }
 
   getSubreddit (subreddit) {
@@ -40,8 +49,7 @@ class Main extends Component {
     return (
       <div className='main'>
         <Search getSubreddit={this.getSubreddit.bind(this)} />
-        {/* <Cards posts={this.state.posts} /> */}
-        <InfiniteScroller posts={this.state.posts} />
+        <Cards posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore}/>
       </div>
     )
   }
