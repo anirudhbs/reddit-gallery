@@ -1,0 +1,12 @@
+img {
+  max-width: 100%;
+  width: 100%;
+}
+
+.main {
+  margin: 0px auto;
+  width: 960px;
+  border: 1px solid black;
+}
+
+
