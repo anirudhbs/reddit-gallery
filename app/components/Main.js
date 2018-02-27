@@ -6,7 +6,7 @@ class Main extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      subreddit: 'pics',
+      subreddit: 'me_irl',
       posts: [],
       hasMore: true,
       after: null
@@ -20,11 +20,6 @@ class Main extends Component {
     fetch(domain + url)
     .then(data => data.json())
     .then(data => {
-      if (data.data.after === null) {
-        this.setState({ hasMore: false })
-      } else {
-        this.setState({ after: data.data.after })
-      }
       const postsArray = data.data.children.map(cur => {
         return {
           url: cur.data.url,
@@ -33,15 +28,24 @@ class Main extends Component {
       })
       const filteredPosts = postsArray.filter(cur => cur.url.endsWith('.jpg') || cur.url.endsWith('.png'))
       const posts = this.state.posts
-      posts.push(...filteredPosts)
-      this.setState({ posts })
+
+      if (data.data.after === null) {
+        this.setState({ hasMore: false })
+      } else if (data.data.after === this.state.after) {
+        // same API call
+        console.log('repost')
+      } else {
+        this.setState({ after: data.data.after })
+        posts.push(...filteredPosts)
+        this.setState({ posts })
+      }
       console.log(this.state.after, posts.length)
     })
   }
 
   getSubreddit (subreddit) {
-    this.setState({ subreddit }, () => {
-      this.getImages()
+    this.setState({ subreddit, after: null, posts: [] }, () => {
+      this.getPosts()
     })
   }
 
@@ -49,7 +53,7 @@ class Main extends Component {
     return (
       <div className='main'>
         <Search getSubreddit={this.getSubreddit.bind(this)} />
-        <Cards posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore}/>
+        <Cards posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />
       </div>
     )
   }
