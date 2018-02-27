@@ -6,13 +6,15 @@ class Main extends Component {
   constructor (props) {
     super(props)
     this.state = {
+      subreddit: '',
       posts: []
     }
     this.getImages = this.getImages.bind(this)
   }
 
   getImages () {
-    fetch('https://www.reddit.com/r/memes.json')
+    const url = `https://www.reddit.com/r/${this.state.subreddit}/rising/.json?limit=4`
+    fetch(url)
     .then(data => data.json())
     .then(data => {
       const posts = data.data.children.map(cur => {
@@ -27,14 +29,16 @@ class Main extends Component {
     )
   }
 
-  componentDidMount () {
-    this.getImages()
+  getSubreddit (subreddit) {
+    this.setState({ subreddit }, () => {
+      this.getImages()
+    })
   }
 
   render () {
     return (
       <div className='main'>
-        <Search />
+        <Search getSubreddit={this.getSubreddit.bind(this)} />
         <Cards posts={this.state.posts} />
       </div>
     )
