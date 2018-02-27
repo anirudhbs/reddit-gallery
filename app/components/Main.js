@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Cards from './Cards'
 import Search from './Search'
+import InfiniteScroller from './InfiniteScroller'
 
 class Main extends Component {
   constructor (props) {
@@ -39,7 +40,8 @@ class Main extends Component {
     return (
       <div className='main'>
         <Search getSubreddit={this.getSubreddit.bind(this)} />
-        <Cards posts={this.state.posts} />
+        {/* <Cards posts={this.state.posts} /> */}
+        <InfiniteScroller posts={this.state.posts} />
       </div>
     )
   }
