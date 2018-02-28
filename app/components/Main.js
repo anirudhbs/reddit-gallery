@@ -23,7 +23,8 @@ class Main extends Component {
       const postsArray = data.data.children.map(cur => {
         return {
           url: cur.data.url,
-          id: cur.data.id
+          id: cur.data.id,
+          title: cur.data.title
         }
       })
       const filteredPosts = postsArray.filter(cur => cur.url.endsWith('.jpg') || cur.url.endsWith('.png'))
@@ -38,8 +39,8 @@ class Main extends Component {
         this.setState({ after: data.data.after })
         posts.push(...filteredPosts)
         this.setState({ posts })
+        console.log(this.state.after, posts.length)
       }
-      console.log(this.state.after, posts.length)
     })
   }
 

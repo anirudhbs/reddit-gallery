@@ -10,7 +10,7 @@ class InfiniteScroller extends Component {
         hasMore={this.props.hasMore} loader={loader}>
         {
           this.props.posts.map(cur =>
-            <Card url={cur.url} key={cur.id} />
+            <Card url={cur.url} key={cur.id} title={cur.title} />
           )
         }
       </InfiniteScroll>

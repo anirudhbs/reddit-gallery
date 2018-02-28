@@ -1,6 +1,7 @@
 img {
   max-width: 100%;
   max-height: 480px;
+  display: inherit;
 }
 
 .main {
@@ -9,12 +10,15 @@ img {
 }
 
 .card {
-  padding: 10px;
   border: 1px solid black;
   margin: 10px;
   min-height: 480px;
 }
 
 .infiniteScroll {
+  display: block;
+}
+
+.title {
   display: block;
 }
