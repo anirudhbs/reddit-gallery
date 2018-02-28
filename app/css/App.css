@@ -1,7 +1,22 @@
+body {
+	font-family: Verdana, Geneva, sans-serif;
+	font-style: normal;
+	font-variant: normal;
+  font-weight: 500;
+}
+
 img {
   max-width: 100%;
-  max-height: 480px;
+  max-height: 640px;
   display: inherit;
+  border: 1px solid #dddddd;
+  border-radius: 5px;
+  margin: auto;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
 }
 
 .main {
@@ -12,7 +27,8 @@ img {
 .card {
   border: 1px solid black;
   margin: 10px;
-  min-height: 480px;
+  min-height: 320px;
+  border-radius: 5px;
 }
 
 .infiniteScroll {
@@ -21,4 +37,17 @@ img {
 
 .title {
   display: block;
+  font-size: 22px;
+  background-color: #428bca;
+  color: #f9f9f9;
+  padding-left: 10px;
+  line-height: 42px;
+}
+
+.image-container {
+  padding: 10px;
+}
+
+.post-footer {
+  padding: 10px;
 }

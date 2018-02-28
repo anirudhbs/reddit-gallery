@@ -7,7 +7,12 @@ class Card extends Component {
         <div className='title'>
           {this.props.title}
         </div>
-        <img src={this.props.url} />
+        <div className='image-container'>
+          <img src={this.props.url} />
+        </div>
+        <div className='post-footer'>
+          <a href={`https://redd.it/${this.props.id}`}>Comments</a>
+        </div>
       </div>
     )
   }

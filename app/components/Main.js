@@ -16,7 +16,7 @@ class Main extends Component {
 
   getPosts () {
     const domain = 'https://www.reddit.com'
-    const url = `/r/${this.state.subreddit}/top/.json?limit=5&after=${this.state.after}`
+    const url = `/r/${this.state.subreddit}/top/.json?limit=4&after=${this.state.after}`
     fetch(domain + url)
     .then(data => data.json())
     .then(data => {
