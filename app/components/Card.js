@@ -11,7 +11,7 @@ class Card extends Component {
           <img src={this.props.url} />
         </div>
         <div className='post-footer'>
-          <a href={`https://redd.it/${this.props.id}`}>Comments</a>
+          <a href={`https://redd.it/${this.props.id}`} target='blank'>Comments</a>
         </div>
       </div>
     )

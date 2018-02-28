@@ -6,6 +6,7 @@ body {
 }
 
 img {
+  display: block;
   max-width: 100%;
   display: inherit;
   border: 1px solid #bbbbbb;
@@ -21,7 +22,13 @@ a {
 
 .main {
   margin: 0px auto;
-  width: 960px;
+  width: 480px;
+}
+
+@media only screen and (min-width: 960px) {
+  .main {
+    width: 960px;
+  }
 }
 
 .card {
@@ -29,6 +36,8 @@ a {
   margin: 10px;
   min-height: 320px;
   border-radius: 5px;
+  position: relative;
+  overflow: hidden;
 }
 
 .infiniteScroll {
@@ -46,11 +55,16 @@ a {
 
 .image-container {
   padding: 10px;
+  margin-bottom: 40px;
 }
 
 .post-footer {
+  width: 100%;
   padding: 10px;
-  background-color: #cdcdcd;
+  background-color: #efefef;
+  position: absolute;
+  bottom: 0;
+  display: block;
 }
 
 .search {
@@ -87,6 +101,5 @@ button:hover {
 }
 
 .header {
-  /* display: inline-block; */
   padding-left: 40px;
 }
