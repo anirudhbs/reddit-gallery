@@ -21,7 +21,7 @@ class Search extends Component {
 
   render () {
     return (
-      <div>
+      <div className='search'>
         <input type='text' value={this.state.subreddit} onChange={this.handleChange} />
         <button onClick={this.handleSubmit}>Go</button>
       </div>

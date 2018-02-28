@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Cards from './Cards'
 import Search from './Search'
+import Header from './Header'
 
 class Main extends Component {
   constructor (props) {
@@ -53,6 +54,7 @@ class Main extends Component {
   render () {
     return (
       <div className='main'>
+        <Header subreddit={this.state.subreddit} />
         <Search getSubreddit={this.getSubreddit.bind(this)} />
         <Cards posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />
       </div>
