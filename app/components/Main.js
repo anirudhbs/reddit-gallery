@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Cards from './Cards'
 import Search from './Search'
 import Header from './Header'
+import Grids from './Grids'
 
 class Main extends Component {
   constructor (props) {
@@ -10,7 +11,8 @@ class Main extends Component {
       subreddit: 'me_irl',
       posts: [],
       hasMore: true,
-      after: null
+      after: null,
+      displayStyle: true
     }
     this.getPosts = this.getPosts.bind(this)
   }
@@ -56,7 +58,11 @@ class Main extends Component {
       <div className='main'>
         <Header subreddit={this.state.subreddit} />
         <Search getSubreddit={this.getSubreddit.bind(this)} />
-        <Cards posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />
+        {
+          this.state.displayStyle
+          ? <Grids posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />
+          : <Cards posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />
+        }
       </div>
     )
   }

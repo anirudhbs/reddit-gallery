@@ -5,66 +5,9 @@ body {
   font-weight: 500;
 }
 
-img {
-  display: block;
-  max-width: 100%;
-  display: inherit;
-  border: 1px solid #bbbbbb;
-  border-radius: 5px;
-  margin: auto;
-  border-style: double;
-}
-
 a {
   text-decoration: none;
   color: #000000;
-}
-
-.main {
-  margin: 0px auto;
-  width: 480px;
-}
-
-@media only screen and (min-width: 960px) {
-  .main {
-    width: 960px;
-  }
-}
-
-.card {
-  border: 1px solid black;
-  margin: 10px;
-  min-height: 320px;
-  border-radius: 5px;
-  position: relative;
-  overflow: hidden;
-}
-
-.infiniteScroll {
-  display: block;
-}
-
-.title {
-  display: block;
-  font-size: 22px;
-  background-color: #428bca;
-  color: #f9f9f9;
-  padding-left: 10px;
-  line-height: 42px;
-}
-
-.image-container {
-  padding: 10px;
-  margin-bottom: 40px;
-}
-
-.post-footer {
-  width: 100%;
-  padding: 10px;
-  background-color: #efefef;
-  position: absolute;
-  bottom: 0;
-  display: block;
 }
 
 .search {
@@ -96,10 +39,100 @@ button {
   font-size: 16px;
 }
 
+.main {
+  margin: 0px auto;
+  max-width: 1800px;
+}
+
+.cards {
+  display: block;
+  margin: 0 auto;
+  border: 1px solid black;
+}
+
+.grids {
+  display: block;
+}
+
+.post-footer {
+  width: 100%;
+  padding: 10px;
+  background-color: #efefef;
+  position: absolute;
+  bottom: 0;
+  display: block;
+}
+
 button:hover {
   cursor: pointer;
 }
 
 .header {
   padding-left: 40px;
+}
+
+.card {
+  border: 1px solid black;
+  margin: 10px auto;
+  min-height: 320px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  width: 960px;
+}
+
+.title {
+  display: block;
+  font-size: 22px;
+  background-color: #428bca;
+  color: #f9f9f9;
+  padding-left: 10px;
+  line-height: 42px;
+}
+
+.image-card {
+  display: block;
+  max-width: 100%;
+  display: inherit;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+  margin: auto;
+  border-style: double;
+}
+
+.image-container {
+  padding: 10px;
+  margin-bottom: 40px;
+}
+
+.grid-item {
+  border: 1px solid black;
+  margin: 10px;
+  min-width: 100px;
+  height: 480px;
+  max-width: 640px;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.image-grid {
+  min-width: 200px;
+  height: 90%;
+  max-width: 95%;
+  display: block;
+  margin: auto;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
+}
+
+.image-modal {
+  min-width: 200px;
+  height: 90%;
+  max-width: 95%;
+  display: block;
+  margin: auto;
+  border: 1px solid #bbbbbb;
+  border-radius: 5px;
 }

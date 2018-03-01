@@ -1,17 +1,17 @@
 import React, { Component } from 'react'
-import Card from './Card'
+import GridItem from './GridItem'
 import InfiniteScroll from 'react-infinite-scroller'
 
-class Cards extends Component {
+class Grids extends Component {
   render () {
     const loader = <div className='loader'>Loading...</div>
     return (
-      <InfiniteScroll loadMore={this.props.getPosts} className='cards'
+      <InfiniteScroll loadMore={this.props.getPosts} className='grids'
         hasMore={this.props.hasMore} loader={loader}>
         {
           this.props.posts.map(cur =>
-            <Card url={cur.url} key={cur.id} title={cur.title}
-              id={cur.id} thumbnail={cur.thumbnail} />
+            <GridItem url={cur.url} key={cur.id} title={cur.title}
+              id={cur.id} />
           )
         }
       </InfiniteScroll>
@@ -19,4 +19,4 @@ class Cards extends Component {
   }
 }
 
-export default Cards
+export default Grids

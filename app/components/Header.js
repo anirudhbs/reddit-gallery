@@ -9,7 +9,7 @@ class Header extends Component {
 
   render () {
     return (
-      <div class='header'>
+      <div className='header'>
         <h1>{this.props.subreddit}</h1>
       </div>
     )
