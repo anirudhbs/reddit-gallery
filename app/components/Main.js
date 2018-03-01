@@ -15,6 +15,7 @@ class Main extends Component {
       displayStyle: true
     }
     this.getPosts = this.getPosts.bind(this)
+    this.toggleDisplayMode = this.toggleDisplayMode.bind(this)
   }
 
   getPosts () {
@@ -53,11 +54,16 @@ class Main extends Component {
     })
   }
 
+  toggleDisplayMode () {
+    this.setState({ displayStyle: !this.state.displayStyle })
+  }
+
   render () {
     return (
       <div className='main'>
         <Header subreddit={this.state.subreddit} />
         <Search getSubreddit={this.getSubreddit.bind(this)} />
+        <button class='display-type-button' onClick={this.toggleDisplayMode}>Toggle</button>
         {
           this.state.displayStyle
           ? <Grids posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />

@@ -4,10 +4,10 @@ class Card extends Component {
   render () {
     return (
       <div className='card'>
-        <div className='title'>
+        <div className='card-title'>
           {this.props.title}
         </div>
-        <div className='image-container'>
+        <div className='card-image-container'>
           <img src={this.props.url} className='image-card' />
         </div>
         <div className='post-footer'>

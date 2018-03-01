@@ -17,6 +17,10 @@ a {
   margin-bottom: 20px;
 }
 
+img {
+  padding: 0;
+}
+
 input[type=text] {
   font-size: 16px;
   width: 200px;
@@ -81,13 +85,25 @@ button:hover {
   width: 960px;
 }
 
-.title {
+.card-title {
   display: block;
   font-size: 22px;
   background-color: #428bca;
   color: #f9f9f9;
   padding-left: 10px;
   line-height: 42px;
+}
+
+.grid-title {
+  position: absolute;
+  display: block;
+  font-size: 22px;
+  background-color: rgba(66, 139, 202, 0.6);
+  color: #f9f9f9;
+  padding-left: 10px;
+  line-height: 42px;
+  width: 100%;
+  opacity: 70%;
 }
 
 .image-card {
@@ -100,16 +116,20 @@ button:hover {
   border-style: double;
 }
 
-.image-container {
+.card-image-container {
   padding: 10px;
   margin-bottom: 40px;
 }
 
+.grid-image-container {
+  padding: 0px;
+}
+
 .grid-item {
   border: 1px solid black;
-  margin: 10px;
+  margin: 2px;
   min-width: 100px;
-  height: 480px;
+  max-height: 480px;
   max-width: 640px;
   border-radius: 5px;
   position: relative;
@@ -122,9 +142,7 @@ button:hover {
   height: 90%;
   max-width: 95%;
   display: block;
-  margin: auto;
-  border: 1px solid #bbbbbb;
-  border-radius: 5px;
+  margin: 0 auto;
 }
 
 .image-modal {
@@ -135,4 +153,11 @@ button:hover {
   margin: auto;
   border: 1px solid #bbbbbb;
   border-radius: 5px;
+}
+
+.modal-button {
+  border-radius: 100%;
+  padding: 9px;
+  line-height: 10px;
+  margin-bottom: 10px;
 }

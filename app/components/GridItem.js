@@ -25,14 +25,14 @@ class GridItem extends Component {
     return (
       <div className='grid-item'>
         <ReactModal isOpen={this.state.showModal} contentLabel='Minimal Modal Example'>
-          <button onClick={this.handleCloseModal}>Close Modal</button>
+          <button onClick={this.handleCloseModal} className='modal-button'>X</button>
           <img src={this.props.url} className='image-modal' />
         </ReactModal>
 
-        <div className='title'>
+        <div className='grid-title'>
           {this.props.title}
         </div>
-        <div className='image-container'>
+        <div className='grid-image-container'>
           <img src={this.props.url} onClick={this.handleOpenModal} className='image-grid' />
         </div>
       </div>
