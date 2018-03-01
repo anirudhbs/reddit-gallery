@@ -63,7 +63,7 @@ class Main extends Component {
       <div className='main'>
         <Header subreddit={this.state.subreddit} />
         <Search getSubreddit={this.getSubreddit.bind(this)} />
-        <button class='display-type-button' onClick={this.toggleDisplayMode}>Toggle</button>
+        <button className='display-type-button' onClick={this.toggleDisplayMode}>Toggle</button>
         {
           this.state.displayStyle
           ? <Grids posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />

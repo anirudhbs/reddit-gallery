@@ -24,7 +24,7 @@ class GridItem extends Component {
   render () {
     return (
       <div className='grid-item'>
-        <ReactModal isOpen={this.state.showModal} contentLabel='Minimal Modal Example'>
+        <ReactModal isOpen={this.state.showModal}>
           <button onClick={this.handleCloseModal} className='modal-button'>X</button>
           <img src={this.props.url} className='image-modal' />
         </ReactModal>
