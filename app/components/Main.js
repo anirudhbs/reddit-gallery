@@ -8,7 +8,7 @@ class Main extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      subreddit: 'me_irl',
+      subreddit: this.getSubFromUrl(),
       posts: [],
       hasMore: true,
       after: null,
@@ -16,6 +16,12 @@ class Main extends Component {
     }
     this.getPosts = this.getPosts.bind(this)
     this.toggleDisplayMode = this.toggleDisplayMode.bind(this)
+  }
+
+  getSubFromUrl () {
+    const url = window.location.href
+    if (url.indexOf('#') === -1) return 'all'
+    return url.slice(url.indexOf('#') + 1)
   }
 
   getPosts () {

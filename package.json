@@ -1,7 +1,6 @@
 {
   "name": "reddit-gallery",
   "version": "0.0.1",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "build": "webpack",
