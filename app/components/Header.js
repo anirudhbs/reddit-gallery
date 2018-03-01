@@ -10,7 +10,7 @@ class Header extends Component {
   render () {
     return (
       <div className='header'>
-        <h1>{this.props.subreddit}</h1>
+        <h1>r/{this.props.subreddit}</h1>
       </div>
     )
   }

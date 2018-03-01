@@ -51,7 +51,6 @@ button {
 .cards {
   display: block;
   margin: 0 auto;
-  border: 1px solid black;
 }
 
 .grids {
@@ -82,7 +81,19 @@ button:hover {
   border-radius: 5px;
   position: relative;
   overflow: hidden;
-  width: 960px;
+  width: 480px;
+}
+
+@media only screen and (min-width: 720px) {
+  .card {
+    width: 720px;
+  }
+}
+
+@media only screen and (min-width: 980px) {
+  .card {
+    width: 960px;
+  }
 }
 
 .card-title {
@@ -129,6 +140,7 @@ button:hover {
   border: 1px solid black;
   margin: 2px;
   min-width: 100px;
+  max-height: 240px;
   max-height: 480px;
   max-width: 640px;
   border-radius: 5px;
@@ -162,5 +174,6 @@ button:hover {
 }
 
 .cards-container {
-  height:700px; overflow:auto;
+  /* height:700px; */
+  overflow:auto;
 }
