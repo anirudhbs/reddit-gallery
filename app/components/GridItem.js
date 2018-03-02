@@ -36,8 +36,10 @@ class GridItem extends Component {
     return (
       <div className='grid-item'>
         <ReactModal isOpen={this.state.showModal} style={customStyles}>
-          <button onClick={this.handleCloseModal} className='modal-button'>X</button>
-          <img src={this.props.url} className='image-modal' />
+          <div className='modal-box'>
+            <button onClick={this.handleCloseModal} className='modal-button'>X</button>
+            <img src={this.props.url} className='image-modal' />
+          </div>
         </ReactModal>
         <div className='grid-title'>
           {this.props.title}

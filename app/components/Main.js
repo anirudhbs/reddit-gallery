@@ -20,7 +20,7 @@ class Main extends Component {
 
   getSubFromUrl () {
     const url = window.location.href
-    if (url.indexOf('#') === -1) return 'all'
+    if (url.indexOf('#') === -1) return 'programmerhumor'
     return url.slice(url.indexOf('#') + 1)
   }
 
@@ -28,30 +28,27 @@ class Main extends Component {
     const domain = 'https://www.reddit.com'
     const url = `/r/${this.state.subreddit}/top/.json?limit=4&after=${this.state.after}`
     fetch(domain + url)
-    .then(data => data.json())
-    .then(data => {
-      const postsArray = data.data.children.map(cur => {
-        return {
-          url: cur.data.url,
-          id: cur.data.id,
-          title: cur.data.title
+      .then(data => data.json())
+      .then(data => {
+        const postsArray = data.data.children.map(cur => {
+          return {
+            url: cur.data.url,
+            id: cur.data.id,
+            title: cur.data.title
+          }
+        })
+        const filteredPosts = postsArray.filter(cur => cur.url.endsWith('.jpg') || cur.url.endsWith('.png'))
+        const posts = this.state.posts
+
+        if (data.data.after === null) {
+          this.setState({ hasMore: false })
+        } else if (data.data.after === this.state.after) { // same API call
+        } else {
+          this.setState({ after: data.data.after })
+          posts.push(...filteredPosts)
+          this.setState({ posts })
         }
       })
-      const filteredPosts = postsArray.filter(cur => cur.url.endsWith('.jpg') || cur.url.endsWith('.png'))
-      const posts = this.state.posts
-
-      if (data.data.after === null) {
-        this.setState({ hasMore: false })
-      } else if (data.data.after === this.state.after) {
-        // same API call
-        console.log('repost')
-      } else {
-        this.setState({ after: data.data.after })
-        posts.push(...filteredPosts)
-        this.setState({ posts })
-        console.log(this.state.after, posts.length)
-      }
-    })
   }
 
   getSubreddit (subreddit) {
@@ -69,11 +66,11 @@ class Main extends Component {
       <div className='main'>
         <Header subreddit={this.state.subreddit} />
         <Search getSubreddit={this.getSubreddit.bind(this)} />
-        <button className='display-type-button' onClick={this.toggleDisplayMode}>Toggle</button>
+        <button className='display-type-button' onClick={this.toggleDisplayMode}>Toggle View</button>
         {
           this.state.displayStyle
-          ? <Grids posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />
-          : <Cards posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />
+            ? <Grids posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />
+            : <Cards posts={this.state.posts} getPosts={this.getPosts} hasMore={this.state.hasMore} />
         }
       </div>
     )
