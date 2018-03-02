@@ -12,7 +12,7 @@ class Main extends Component {
       posts: [],
       hasMore: true,
       after: null,
-      displayStyle: true
+      displayStyle: false
     }
     this.getPosts = this.getPosts.bind(this)
     this.toggleDisplayMode = this.toggleDisplayMode.bind(this)
