@@ -121,10 +121,8 @@ button:hover {
   display: block;
   max-width: 100%;
   display: inherit;
-  border: 1px solid #bbbbbb;
   border-radius: 5px;
   margin: auto;
-  border-style: double;
 }
 
 .card-image-container {

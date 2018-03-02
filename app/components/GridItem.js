@@ -22,13 +22,23 @@ class GridItem extends Component {
   }
 
   render () {
+    const customStyles = {
+      content: {
+        background: 'rgba(0, 0, 0, 0)',
+        border: '0px',
+        top: '10%',
+        bottom: '10%',
+        left: '40px',
+        right: '40px'
+      }
+    }
+
     return (
       <div className='grid-item'>
-        <ReactModal isOpen={this.state.showModal}>
+        <ReactModal isOpen={this.state.showModal} style={customStyles}>
           <button onClick={this.handleCloseModal} className='modal-button'>X</button>
           <img src={this.props.url} className='image-modal' />
         </ReactModal>
-
         <div className='grid-title'>
           {this.props.title}
         </div>
